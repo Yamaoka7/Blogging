@@ -1,0 +1,24 @@
+class BlogPost:
+    def __init__(self, title, content, author):
+        self.title = title
+        self.content = content
+        self.author = author
+        self.comments = []
+
+    def add_comment(self, comment):
+        self.comments.append(comment)
+
+class Blogger:
+    def __init__(self, name):
+        self.name = name
+        self.posts = []
+
+    def create_post(self, title, content):
+        post = BlogPost(title, content, self)
+        self.posts.append(post)
+        return post
+
+# Usage example:
+blogger = Blogger("Alice")
+post = blogger.create_post("Introduction to Python", "Python is a versatile programming language.")
+post.add_comment("Great post!")
